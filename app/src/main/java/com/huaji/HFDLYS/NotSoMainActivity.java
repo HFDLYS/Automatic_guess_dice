@@ -6,6 +6,7 @@ import android.widget.*;
 import android.view.View.*;
 import android.view.*;
 
+
 public class NotSoMainActivity extends Activity 
 {
     @Override
@@ -19,11 +20,38 @@ public class NotSoMainActivity extends Activity
 			@Override
 			public void onClick(View v)
 			{
+				EditText T1 = (EditText)findViewById(R.id.text_1);
+				String w = T1.getText().toString();
+				int time =Integer.parseInt(w);
+				String E ="不知道";
+				int c = 0;
+				String O= " " ;
 				
-				Toast.makeText(NotSoMainActivity.this,"你输入的是",Toast.LENGTH_LONG).show();
+				
+				
+				
+				for(int e = 0 ; e<time ; e++)
+					{
+						int d =(int)(Math.random()*6)+1;
+						Toast.makeText(NotSoMainActivity.this, E ,Toast.LENGTH_SHORT).show();
+						O = O + Integer.toString(d);
+						if (d > 3)
+						{
+							c++;
+						}
+					}
+				if (c >= time /2 + 1)
+				{
+					E = "你赢了";
+				}
+				else
+				{
+					E= "你输了";
+				}
+				
+				Toast.makeText(NotSoMainActivity.this,O + E ,Toast.LENGTH_LONG).show();
 			}
 		});
-		
 		
 	}
 
